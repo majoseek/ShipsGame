@@ -1,4 +1,5 @@
 #include "Player.h"
+#include<fstream>
 #pragma once
 class Game
 {

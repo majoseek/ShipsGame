@@ -1,13 +1,16 @@
 #include "Board.h"
-Board::Board(char** input_board, int board_size)
+#include<iostream>
+Board::Board(std::vector<std::string> input_board)
 {
-	ships = new Ship * [board_size];	//allocating memory of board size
-	for (int i = 0; i < board_size; i++)
-		ships[i] = new Ship[board_size];
+	int b_size = input_board.size();
+	ships = new Ship * [b_size];	//allocating memory of board size
+	for (int i = 0; i < b_size; i++)
+		ships[i] = new Ship[b_size];
 
-	for(int i=0;i<board_size;i++)
-		for (int j = 0; j < board_size; j++)
+	for(int i=0;i< b_size;i++)
+		for (int j = 0; j < b_size; j++)
 		{
-			ships[i][j] = input_board[i][j];	//copying user input to class matrix
+			ships[i][j] = Ship(10, "RODZAJ_STATKU");
 		}
+	board_size = b_size;
 }
