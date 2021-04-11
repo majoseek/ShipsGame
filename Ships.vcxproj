@@ -27,6 +27,7 @@
     <ClInclude Include="Incendiary.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Ship.h" />
+    <ClInclude Include="Status.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ammunition.cpp" />
