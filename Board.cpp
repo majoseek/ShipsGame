@@ -13,9 +13,9 @@ Board::Board(vector<string> input_board)
 		for (int j = 0; j < b_size; j++)
 		{
 			if (input_board[i][j] == BATTLESHIP_SIGN)
-				ships[i][j] = Battleship(30, 10);	//(health,armor)
+				ships[i][j] = Battleship(BATTLESHIP_HEALTH, BATTLESHIP_ARMOR);	//(health,armor)
 			else if (input_board[i][j] == NORMAL_SHIP_SIGN)
-				ships[i][j] = Ship(15);	//(health)
+				ships[i][j] = Ship(NORMALSHIP_HEALTH);	//(health)
 			else
 			{
 				ships[i][j] = Ship(0);	//empty area

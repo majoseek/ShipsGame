@@ -8,6 +8,7 @@ public:
 	std::string name;
 	Board player_board;	//keeps board for each player
 	std::pair<int,int>ammo;	//<normal_ammunition,incendiary_ammunition>
+	std::vector<std::string> logs;	//:param[]: keeps history of made moves
 	int remain_ships;
 	Player(int starting_ships=0,Board p_board=Board(std::vector<std::string>()),std::string in_name = "");
 	std::string take_shot(int x, int y, Ammunition shoot_ammo);

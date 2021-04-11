@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Status.h"
 #include <ostream>
-Player::Player(int start_ships,Board p_board,std::string in_name)
+Player::Player(int start_ships, Board p_board, std::string in_name)
 {
 	name = in_name;
 	ammo = std::make_pair(NORMAL_AMMO_QUANTITY, INCENDIARY_AMMO_QUANTITY);
@@ -13,15 +13,22 @@ Player::Player(int start_ships,Board p_board,std::string in_name)
 std::string Player::take_shot(int x, int y, Ammunition shoot_ammo)
 {
 	Status hit_status = player_board.hit_ship(x, y, shoot_ammo);
+	std::string shot_msg;
 	if (hit_status == Status::Destroyed)
 	{
-		return "You destroyed the ship!";
+		shot_msg = " destroyed the ship!";
 	}
 	if (hit_status == Status::Miss)
 	{
-		return "You missed!";
+		shot_msg = " missed!";
 	}
-	return "You hit the ship!";
+	else
+		shot_msg = " hit the ship!";
+	char x_tmp = 'A' + x;
+	std::string log_msg = name + " shoots on area " + x_tmp + std::to_string(y+1) + " with " + shoot_ammo.type + " ammo\n";
+	log_msg += name+shot_msg;
+	logs.push_back(log_msg);
+	return "You"+shot_msg;
 }
 
 

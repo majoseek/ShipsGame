@@ -87,3 +87,22 @@ void print_file_error_msg()
 	for (int i = 0; i < 50; i++)
 		cout << "=";
 }
+void save_game_to_file(Game ended_game)
+{
+	ofstream player1_file("player1_game.txt");
+	player1_file << "Player: " << setw(10) << ended_game.current_player.name << endl;
+	player1_file << setfill('=') << setw(50) << "" << endl;
+	ended_game.current_player.player_board.print_board(player1_file);
+	player1_file << setfill('=') << setw(50) << "" << endl;
+	for (auto log : ended_game.current_player.logs)
+		player1_file << log << endl;
+	player1_file.close();
+	ofstream player2_file("player2_game.txt");
+	player2_file << "Player: " << setw(10) << ended_game.next_player.name << endl;
+	player2_file << setfill('=') << setw(50) << "" << endl;
+	ended_game.next_player.player_board.print_board(player2_file);
+	player2_file << setfill('=') << setw(50) << "" << endl;
+	for (auto log : ended_game.next_player.logs)
+		player2_file << log << endl;
+	player2_file.close();
+}
