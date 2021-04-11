@@ -12,6 +12,6 @@ void Ship::take_damage(int amount)
 
 std::ostream& operator<<(std::ostream& os, const Ship& ship)
 {
-	os << ship.type << " (" << ship.health << "HP left)";
+	//os << ship.type << " (" << ship.health << "HP left)";
 	return os;
 }

@@ -52,14 +52,14 @@ vector<string> get_board(string file_name)
 bool check_board(vector<string>board)
 {
 	int battleship_number=0, normal_ship_number = 0;
-	for (int i = 0; i < board.size(); i++)
-		for (int j = 0; j < board.size(); j++)
+	for (auto i: board)
+		for (auto j:i)
 		{
-			if (board[i][j] == BATTLESHIP_SIGN)
+			if (j == BATTLESHIP_SIGN)
 				battleship_number++;
-			else if (board[i][j] == NORMAL_SHIP_SIGN)
+			else if (j == NORMAL_SHIP_SIGN)
 				normal_ship_number++;
-			else if (board[i][j] != '-')
+			else if (j != '-')
 				return false;	//This square got wrong identity
 		}
 	if (battleship_number > MAX_BATTLESHIPS || normal_ship_number > MAX_NORMAL_SHIPS)

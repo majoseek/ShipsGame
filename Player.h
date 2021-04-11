@@ -5,7 +5,6 @@ class Player
 {
 public:
 	std::string name;
-	Board player_board;
 	int remain_ships;
 	Ammunition* ammo;
 	Player(std::string in_name = "", int starting_ships = 0, Ammunition* starting_ammo = NULL);
