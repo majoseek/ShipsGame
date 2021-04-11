@@ -88,12 +88,10 @@ std::string Game::player_turn()
 	if (ammo_type == 0)
 	{
 		current_player.ammo.first--;
+		return next_player.take_shot(target.first, target.second, Ammunition(NORMAL_AMMO_DMG));
 	}
-	else
-	{
-		current_player.ammo.second--;
-	}
-	return next_player.take_shot(target.first, target.second, ammo_type);
+	current_player.ammo.second--;
+	return next_player.take_shot(target.first, target.second, Incendiary(INCENDIARY_AMMO_DMG));
 }
 
 Game::Game(Player starting_player, Player second_player)

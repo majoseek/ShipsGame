@@ -2,6 +2,8 @@
 #include<string>
 #define NORMAL_AMMO_QUANTITY 90
 #define INCENDIARY_AMMO_QUANTITY 10
+#define NORMAL_AMMO_DMG 10
+#define INCENDIARY_AMMO_DMG 20
 class Ammunition
 {
 public:
