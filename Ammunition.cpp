@@ -1,6 +1,6 @@
 #include "Ammunition.h"
-Ammunition::Ammunition(int dmg, std::string in_type)
+Ammunition::Ammunition(int dmg)
 {
 	damage = dmg;
-	type = in_type;
+	type = "NORMAL";
 }

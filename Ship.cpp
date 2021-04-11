@@ -1,8 +1,8 @@
 #include "Ship.h"
-Ship::Ship(int start_health, std::string in_type)
+Ship::Ship(int start_health)
 {
 	health = start_health;
-	type = in_type;
+	type = "NORMAL";
 }
 
 void Ship::take_damage(int amount)

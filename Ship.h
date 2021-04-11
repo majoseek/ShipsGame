@@ -7,7 +7,7 @@ public:
 	int health;
 	std::string type;	//battleship or ... or ...
 	int* effects;
-	Ship(int start_health = 0, std::string in_type = "");
+	Ship(int start_health = 0);
 	void take_damage(int amount);
 };
 
