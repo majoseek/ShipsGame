@@ -1,17 +1,21 @@
 #include "Ship.h"
+#include <algorithm>
+#include <ostream>
+
 Ship::Ship(int start_health)
 {
 	health = start_health;
 	type = "NORMAL";
+	hit_incendiary = 0;
 }
 
 void Ship::take_damage(int amount)
 {
-	health = max(0, health - amount);
+	health = std::max(0, health - amount);
 }
 
 std::ostream& operator<<(std::ostream& os, const Ship& ship)
 {
-	//os << ship.type << " (" << ship.health << "HP left)";
+	os << ship.type << " (" << ship.health << "HP left)";
 	return os;
 }

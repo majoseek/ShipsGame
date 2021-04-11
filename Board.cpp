@@ -32,3 +32,44 @@ int Board::count_ships()
 		}
 	return result;
 }
+
+void Board::incendiary_ships()
+{
+	for (int i = 0; i < board_size; i++)
+		for (int j = 0; j < board_size; j++)
+		{
+			if (ships[i][j].hit_incendiary > 0)
+			{
+				ships[i][j].take_damage(INCENDIARYDMG);
+				ships[i][j].hit_incendiary--;
+			}
+				
+		}
+}
+
+Status Board::hit_ship(int x, int y, Ammunition ammo)
+{
+	if (ships[x][y].is_destroyed())
+	{
+		return Status::Miss;
+	}
+	else
+	{
+		ships[x][y].take_damage(ammo.damage);
+		if (ammo.type == "INCENDIARY")
+			ships[x][y].hit_incendiary = 3;
+		if (ships[x][y].is_destroyed())
+		{
+			remove_ship(x, y);
+			return Status::Destroyed;
+		}
+		return Status::Hit;
+	}
+}
+
+void Board::remove_ship(int x, int y)
+{
+	ships[x][y].type = "NONE";
+	ships[x][y].health = 0;
+	ships[x][y].hit_incendiary = 0;
+}

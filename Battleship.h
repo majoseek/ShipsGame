@@ -6,5 +6,6 @@ class Battleship :
 public:
     int armor;
     Battleship(int start_health, int start_armor);
+    void take_damage(int amount);
 };
 
