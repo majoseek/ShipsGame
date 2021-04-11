@@ -1,6 +1,26 @@
 #include "Functions.h"
 #include "Game.h"
+#include <fstream>
+#include <iomanip>
 using namespace std;
+
+void save_game_to_file(Game ended_game)
+{
+	ofstream player1_file("player1_game.txt");
+	player1_file << "Player: " << setw(10) << ended_game.current_player.name << endl;
+	player1_file << setfill('=') << setw(50) << "" << endl;
+	ended_game.current_player.player_board.print_board(player1_file);
+	player1_file << setfill('=') << setw(50) << "" << endl;
+	// Add logs for teh player 1 
+	player1_file.close();
+	ofstream player2_file("player2_game.txt");
+	player2_file << "Player: " << setw(10) << ended_game.current_player.name << endl;
+	player2_file << setfill('=') << setw(50) << "" << endl;
+	ended_game.current_player.player_board.print_board(player2_file);
+	player2_file << setfill('=') << setw(50) << "" << endl;
+	// Add logs for the player 2
+	player2_file.close();
+}
 
 int main()
 {
@@ -24,11 +44,15 @@ int main()
 	Game g1 = Game(player1, player2);
 	while (!g1.check_game_end())
 	{
-		g1.current_player.player_board.print_board();
+		g1.current_player.player_board.print_board(cout);
 		std::cout << g1.current_player << endl << endl;
 		std::cout << g1.player_turn() << endl;
 		g1.swap_player();
+		system("pause");
 		system("cls");
 	}
+	std::cout << "Game ended!" << endl;
+	std::cout << g1.next_player.name << " won. Congratulation!";
+	save_game_to_file(g1);
 	return 0;
 }
