@@ -14,7 +14,6 @@ std::string Player::take_shot(int x, int y, Ammunition shoot_ammo)
 	Status hit_status = player_board.hit_ship(x, y, shoot_ammo);
 	if (hit_status == Status::Destroyed)
 	{
-		remain_ships -= 1;
 		return "You destroyed the ship!";
 	}
 	if (hit_status == Status::Miss)
@@ -29,6 +28,6 @@ std::ostream& operator<<(std::ostream& os, Player player)
 {
 	os << player.name << "'s turn. You have " << player.ammo.first << " normal ammunition left and ";
 	os << player.ammo.second << " incendiary ammunition left." << std::endl;
-	os << "You still have " << player.remain_ships << " ships left.";
+	os << "You still have " << player.player_board.count_ships() << " ships left.";
 	return os;
 }
