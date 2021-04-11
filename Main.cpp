@@ -1,4 +1,5 @@
 #include "Functions.h"
+#include "Game.h"
 using namespace std;
 
 int main()
@@ -20,6 +21,12 @@ int main()
 	Incendiary incendiary_ammo(10);
 	Player player1(player1_board, b1.first);
 	Player player2(player2_board,b2.first);
-
+	Game g1 = Game(player1, player2);
+	while (!g1.check_game_end())
+	{
+		std::cout << g1.current_player << endl << endl;
+		std::cout << g1.player_turn() << endl;
+		g1.swap_player();
+	}
 	return 0;
 }
