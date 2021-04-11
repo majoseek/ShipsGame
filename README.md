@@ -1,4 +1,8 @@
+# Autorzy
+Mateusz Maj
+Wojciech Kołodziejak
 
+# Zadanie
 Gra na wzór gry w Statki
 
 Gracz w wersji 2 osobowej z wymiana danych przez plik.
