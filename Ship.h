@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#define max(a,b) ((a)>(b)?(a):(b))
 class Ship
 {
 public:
