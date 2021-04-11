@@ -49,3 +49,20 @@ vector<string> get_board(string file_name)
 	}
 	return board_o;
 }
+bool check_board(vector<string>board)
+{
+	int battleship_number=0, normal_ship_number = 0;
+	for (int i = 0; i < board.size(); i++)
+		for (int j = 0; j < board.size(); j++)
+		{
+			if (board[i][j] == BATTLESHIP_SIGN)
+				battleship_number++;
+			else if (board[i][j] == NORMAL_SHIP_SIGN)
+				normal_ship_number++;
+			else if (board[i][j] != '-')
+				return false;	//This square got wrong identity
+		}
+	if (battleship_number > MAX_BATTLESHIPS || normal_ship_number > MAX_NORMAL_SHIPS)
+		return false;
+	return true;
+}
