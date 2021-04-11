@@ -46,6 +46,10 @@ void Board::incendiary_ships()
 			{
 				ships[i][j].take_damage(INCENDIARYDMG);
 				ships[i][j].hit_incendiary--;
+				if (ships[i][j].is_destroyed())
+				{
+					remove_ship(i, j);
+				}
 			}
 				
 		}
@@ -77,33 +81,33 @@ void Board::remove_ship(int x, int y)
 	ships[x][y].health = 0;
 	ships[x][y].hit_incendiary = 0;
 }
-void Board::print_board()
+void Board::print_board(std::ostream& os)
 {
 	for (int i = 0; i < board_size*2+2; i++)
-		cout << "=";
-	cout << "\n";
+		os << "=";
+	os << "\n";
 	char sign = 'A';
 	for (int i = 0; i < board_size; i++,sign++)
 	{
-		cout << sign << " ";
+		os << sign << " ";
 		for (int j = 0; j < board_size; j++)
 		{
 			if (ships[i][j].type == "BATTLESHIP")
-				cout << " #";
+				os << " #";
 			else if (ships[i][j].type == "NORMAL")
-				cout << " @";
+				os << " @";
 			else
-				cout << " -";
+				os << " -";
 		}
-		cout << endl;
+		os << endl;
 	}
 	for (int i = 0; i < 3; i++)
-		cout << " ";
+		os << " ";
 	for (int i = 0; i < board_size; i++)
-		cout << i+1 << " ";
-	cout << endl;
+		os << i+1 << " ";
+	os << endl;
 	for (int i = 0; i < board_size*2+2; i++)
-		cout << "=";
-	cout << "\n";
+		os << "=";
+	os << "\n";
 
 }
