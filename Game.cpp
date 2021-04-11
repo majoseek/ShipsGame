@@ -28,15 +28,15 @@ std::pair<int, int> get_player_target(int board_size)
 int get_ammo_type(std::pair<int, int> ammo_left)
 {
 	std::string ammo_kind;
-	std::cout << "Type an ammuntion kind (normal or incendiary): ";
+	std::cout << "Type an ammuntion kind - N (Normal), I (Incendiary):";
 	std::cin >> ammo_kind;
 	bool condition = true;
 	for (auto& c : ammo_kind) c = toupper(c);
-	if (ammo_kind == "NORMAL" && ammo_left.first > 0)
+	if (ammo_kind == "N" && ammo_left.first > 0)
 	{
 		condition = false;
 	}
-	else if (ammo_kind == "INCENDIARY" && ammo_left.second > 0)
+	else if (ammo_kind == "I" && ammo_left.second > 0)
 	{
 		condition = false;
 	}
@@ -45,18 +45,18 @@ int get_ammo_type(std::pair<int, int> ammo_left)
 		std::cout << "Incorrect ammunation type. Provide it again: ";
 		std::cin >> ammo_kind;
 		for (auto& c : ammo_kind) c = toupper(c);
-		if (ammo_kind == "NORMAL" && ammo_left.first > 0)
+		if (ammo_kind == "N" && ammo_left.first > 0)
 		{
 			condition = false;
 		}
-		else if (ammo_kind == "INCENDIARY" && ammo_left.second > 0)
+		else if (ammo_kind == "I" && ammo_left.second > 0)
 		{
 			condition = false;
 		}
 	}
 	std::cin.clear();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	if (ammo_kind == "NORMAL")
+	if (ammo_kind == "N")
 	{
 		return 0;
 	}
