@@ -18,8 +18,8 @@ int main()
 	Board player2_board(b2.second);
 	Ammunition normal_ammo(5);
 	Incendiary incendiary_ammo(10);
-	Player player1(player1_board, b1.first, player1_board.count_ships(), 10,3);
-	//Player player2(player2_board,b2.second,);
+	Player player1(player1_board, b1.first);
+	Player player2(player2_board,b2.first);
 
 	return 0;
 }
