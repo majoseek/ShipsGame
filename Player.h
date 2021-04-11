@@ -9,7 +9,8 @@ public:
 	Board player_board;	//keeps board for each player
 	std::pair<int,int>ammo;	//<normal_ammunition,incendiary_ammunition>
 	Player(Board p_board=Board(std::vector<std::string>()),std::string in_name = "");
-	void shoot_ship(int x,int y,Ammunition shoot_ammo);
-	void take_shot(int x, int y, Ammunition shoot_ammo);
+	std::string take_shot(int x, int y, Ammunition shoot_ammo);
+	bool has_ammo() { return (ammo.first > 0 || ammo.second > 0); }
 };
 
+std::ostream& operator<<(std::ostream& os, Player player);
