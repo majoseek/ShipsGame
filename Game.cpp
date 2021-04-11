@@ -26,7 +26,7 @@ std::pair<int, int> get_player_target(int board_size)
 int get_ammo_type(std::pair<int, int> ammo_left)
 {
 	std::string ammo_kind;
-	std::cout << "Type an ammuntion kind (1) normal or incendiary): ";
+	std::cout << "Type an ammuntion kind (normal or incendiary): ";
 	std::cin >> ammo_kind;
 	bool condition = true;
 	for (auto& c : ammo_kind) c = toupper(c);
