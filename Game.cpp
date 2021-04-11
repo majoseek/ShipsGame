@@ -15,11 +15,13 @@ std::pair<int, int> get_player_target(int board_size)
 	char target_letter;
 	std::cout << "Type a cell to attack(eg: A1): ";
 	std::cin >> target_letter >> target_num;
-	while (!check_range('A', 'A' + board_size, target_letter) || !check_range(1, board_size, target_num))
+	while (!check_range('A', 'A' + board_size - 1, target_letter) || !check_range(1, board_size, target_num))
 	{
 		std::cout << "Incorrect cell. Provide it again: ";
 		std::cin >> target_letter >> target_num;
 	}
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return std::make_pair(target_letter - 'A', target_num - 1);
 }
 
@@ -52,6 +54,8 @@ int get_ammo_type(std::pair<int, int> ammo_left)
 			condition = false;
 		}
 	}
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	if (ammo_kind == "NORMAL")
 	{
 		return 0;
