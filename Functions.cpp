@@ -79,7 +79,8 @@ void print_file_error_msg()
 {
 	for (int i = 0; i < 50; i++)
 		cout << "=";
-	cout << "\nYou can place maximum:\n" << MAX_NORMAL_SHIPS << " normal ships\n" << MAX_BATTLESHIPS << " battleships\n";
+	cout << "\nFirst line must contain your name" << endl;
+	cout << "You can place maximum:\n" << MAX_NORMAL_SHIPS << " normal ships\n" << MAX_BATTLESHIPS << " battleships\n";
 	cout << "Normal ships are marked as " << NORMAL_SHIP_SIGN << endl;
 	cout << "Battleships are marked as " << BATTLESHIP_SIGN << endl;
 	cout << "Empty areas are marked as -" << endl;
