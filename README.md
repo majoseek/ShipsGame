@@ -1,5 +1,5 @@
 # Autorzy
-Mateusz Maj
+Mateusz Maj\
 Wojciech Kołodziejak
 
 # Zadanie
