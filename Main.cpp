@@ -12,13 +12,6 @@ int main()
 		return 0;
 	}
 	Board board(b);
-	for (int i = 0; i < board.board_size; i++)
-	{
-		for (int j = 0; j < board.board_size; j++)
-		{
-			//cout << (board.ships)[i][j].health << " ";
-		}
-		//cout << endl;
-	}
+	
 	return 0;
 }
