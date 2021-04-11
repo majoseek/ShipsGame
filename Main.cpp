@@ -28,6 +28,7 @@ int main()
 		std::cout << g1.current_player << endl << endl;
 		std::cout << g1.player_turn() << endl;
 		g1.swap_player();
+		Sleep(2000);
 		system("cls");
 	}
 	return 0;
