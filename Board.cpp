@@ -82,12 +82,10 @@ void Board::print_board()
 	for (int i = 0; i < board_size*2+2; i++)
 		cout << "=";
 	cout << "\n";
-	for (int i = 0; i < board_size; i++)
+	char sign = 'A';
+	for (int i = 0; i < board_size; i++,sign++)
 	{
-		if (i+1 >= 10)
-			cout << i + 1;
-		else
-			cout << i + 1 << " ";
+		cout << sign << " ";
 		for (int j = 0; j < board_size; j++)
 		{
 			if (ships[i][j].type == "BATTLESHIP")
@@ -99,11 +97,10 @@ void Board::print_board()
 		}
 		cout << endl;
 	}
-	char sign = 'A';
 	for (int i = 0; i < 3; i++)
 		cout << " ";
-	for (int i = 0; i < board_size; i++, sign++)
-		cout << sign << " ";
+	for (int i = 0; i < board_size; i++)
+		cout << i+1 << " ";
 	cout << endl;
 	for (int i = 0; i < board_size*2+2; i++)
 		cout << "=";
