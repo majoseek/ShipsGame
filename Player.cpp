@@ -27,7 +27,7 @@ std::string Player::take_shot(int x, int y, Ammunition shoot_ammo)
 
 std::ostream& operator<<(std::ostream& os, Player player)
 {
-	os << player.name << "'s turn. You have " << player.ammo.first << " normal ammunition left and ";
+	os << player.name << "'s turn. \nYou have " << player.ammo.first << " normal ammunition left and ";
 	os << player.ammo.second << " incendiary ammunition left." << std::endl;
 	os << "You still have " << player.player_board.count_ships() << " ships left.";
 	return os;

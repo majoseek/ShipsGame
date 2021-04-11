@@ -19,5 +19,6 @@ public:
 	void remove_ship(int x, int y);
 	int count_ships();	//it returns number of remaining ships on board
 	void incendiary_ships();
+	void print_board();
 };
 

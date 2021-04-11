@@ -1,7 +1,8 @@
 #include "Board.h"
 #include"Battleship.h"
 #include<iostream>
-Board::Board(std::vector<std::string> input_board)
+using namespace std;
+Board::Board(vector<string> input_board)
 {
 	int b_size = input_board.size();
 	ships = new Ship * [b_size];	//allocating memory of board size
@@ -16,7 +17,10 @@ Board::Board(std::vector<std::string> input_board)
 			else if (input_board[i][j] == NORMAL_SHIP_SIGN)
 				ships[i][j] = Ship(15);	//(health)
 			else
+			{
 				ships[i][j] = Ship(0);	//empty area
+				ships[i][j].type = "NONE";
+			}
 
 		}
 	board_size = b_size;
@@ -72,4 +76,37 @@ void Board::remove_ship(int x, int y)
 	ships[x][y].type = "NONE";
 	ships[x][y].health = 0;
 	ships[x][y].hit_incendiary = 0;
+}
+void Board::print_board()
+{
+	for (int i = 0; i < board_size*2+2; i++)
+		cout << "=";
+	cout << "\n";
+	for (int i = 0; i < board_size; i++)
+	{
+		if (i+1 >= 10)
+			cout << i + 1;
+		else
+			cout << i + 1 << " ";
+		for (int j = 0; j < board_size; j++)
+		{
+			if (ships[i][j].type == "BATTLESHIP")
+				cout << " #";
+			else if (ships[i][j].type == "NORMAL")
+				cout << " @";
+			else
+				cout << " -";
+		}
+		cout << endl;
+	}
+	char sign = 'A';
+	for (int i = 0; i < 3; i++)
+		cout << " ";
+	for (int i = 0; i < board_size; i++, sign++)
+		cout << sign << " ";
+	cout << endl;
+	for (int i = 0; i < board_size*2+2; i++)
+		cout << "=";
+	cout << "\n";
+
 }
