@@ -3,14 +3,14 @@
 #include <cstdlib>
 
 
-bool check_range(int a, int b, int num)
+bool check_range(const int& a, const int& b, const int& num)
 // Simple function to check whether a num is in the range <a, b>
 {
 	return (num >= a && num <= b);
 }
 
 
-std::pair<int, int> get_player_target(int board_size)
+std::pair<int, int> get_player_target(const int& board_size)
 // Function which gets a target cell input from the player
 {
 	int target_num;
@@ -27,7 +27,7 @@ std::pair<int, int> get_player_target(int board_size)
 	return std::make_pair(target_letter - 'A', target_num - 1);
 }
 
-int get_ammo_type(std::pair<int, int> ammo_left)
+int get_ammo_type(const std::pair<int, int>& ammo_left)
 // Function which gets an ammuntion type from the player
 {
 	std::string ammo_kind;

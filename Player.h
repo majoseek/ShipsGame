@@ -10,9 +10,9 @@ public:
 	std::pair<int,int>ammo;	//<normal_ammunition,incendiary_ammunition>
 	std::vector<std::string> logs;	//:param[]: keeps history of made moves
 	int remain_ships;
-	Player(int starting_ships=0,Board p_board=Board(std::vector<std::string>()),std::string in_name = "");
-	std::string take_shot(int x, int y, Ammunition shoot_ammo);
+	Player(const int& starting_ships=0, const Board& p_board=Board(std::vector<std::string>()), const std::string& in_name = "");
+	std::string take_shot(const int& x,const int& y,const Ammunition& shoot_ammo);
 	bool has_ammo() const { return (ammo.first > 0 || ammo.second > 0); }
 };
 
-std::ostream& operator<<(std::ostream& os, Player player);
+std::ostream& operator<<(std::ostream& os, const Player& player);

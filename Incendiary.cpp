@@ -1,5 +1,5 @@
 #include "Incendiary.h"
-Incendiary::Incendiary(int dmg) :Ammunition(damage)
+Incendiary::Incendiary(const int& dmg) :Ammunition(damage)
 {
 	damage = dmg;
 	type = "INCENDIARY";

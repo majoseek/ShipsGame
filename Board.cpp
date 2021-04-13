@@ -57,7 +57,7 @@ void Board::incendiary_ships()
 		}
 }
 
-Status Board::hit_ship(int x, int y, Ammunition ammo)
+Status Board::hit_ship(const int& x, const int& y, const Ammunition& ammo)
 // Method which allows hitting ships
 {
 	if (ships[x][y].is_destroyed())
@@ -78,7 +78,7 @@ Status Board::hit_ship(int x, int y, Ammunition ammo)
 	}
 }
 
-void Board::remove_ship(int x, int y)
+void Board::remove_ship(const int& x, const int& y)
 // Method which removes a destroyed ship situated at XY
 {
 	ships[x][y].type = "NONE";

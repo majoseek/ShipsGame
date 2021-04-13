@@ -9,8 +9,9 @@ public:
 	int health;
 	std::string type;
 	int hit_incendiary;
-	Ship(int start_health = 0);
-	void take_damage(int amount);
+	Ship(const int& start_health = 0);
+	void take_damage(const int& amount);
 	bool is_destroyed() const { return health == 0; }
 };
 
+std::ostream& operator<<(std::ostream& os, const Ship& ship);

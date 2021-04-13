@@ -10,6 +10,6 @@ class Ammunition
 public:
 	int damage;
 	std::string type;
-	Ammunition(int dmg);
+	Ammunition(const int& dmg);
 };
 

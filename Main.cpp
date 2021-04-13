@@ -20,7 +20,7 @@ int main()
 	//Ammunition normal_ammo(5);
 	//Incendiary incendiary_ammo(10);
 	Player player1(player1_board.count_ships(), player1_board, b1.first);
-	Player player2(player2_board.count_ships(), player2_board,b2.first);
+	Player player2(player2_board.count_ships(), player2_board, b2.first);
 	Game g1 = Game(player1, player2);
 	while (!g1.check_game_end())
 	{
@@ -28,11 +28,11 @@ int main()
 		std::cout << g1.current_player << endl << endl;
 		std::cout << g1.player_turn() << endl;
 		g1.swap_player();
-		save_game_to_file(g1);
 		system("pause");
 		system("cls");
 	}
 	std::cout << "Game ended!" << endl;
 	std::cout << g1.next_player.name << " won. Congratulations!";
+	save_game_to_file(g1);
 	return 0;
 }

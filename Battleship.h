@@ -5,7 +5,7 @@ class Battleship :
 {
 public:
     int armor; // reduces incoming damage
-    Battleship(int start_health, int start_armor);
-    void take_damage(int amount);
+    Battleship(const int& start_health, const int& start_armor);
+    void take_damage(const int& amount);
 };
 

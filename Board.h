@@ -15,8 +15,8 @@ public:
 	Ship **ships;	//:**param: it keeps board as a matrix
 	int board_size;
 	Board(std::vector<std::string>input_board = std::vector<std::string>());	//assuming that board is a square
-	Status hit_ship(int x, int y, Ammunition ammo);
-	void remove_ship(int x, int y);
+	Status hit_ship(const int& x, const int& y, const Ammunition& ammo);
+	void remove_ship(const int& x, const int& y);
 	int count_ships() const;	//it returns number of remaining ships on board
 	void incendiary_ships();
 	void print_board(std::ostream& os) const;

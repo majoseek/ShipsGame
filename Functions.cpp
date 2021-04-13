@@ -1,7 +1,7 @@
 #include "Functions.h"
 using namespace std;
 
-pair<string,vector<string>> get_board(string file_name)
+pair<string,vector<string>> get_board(const string& file_name)
 // Function which gets player's data from a file. Returns pair of <player_name, player_board>
 {
 	auto size_error = []()
@@ -57,7 +57,7 @@ pair<string,vector<string>> get_board(string file_name)
 	result.second = board_o;
 	return result;
 }
-bool check_board(vector<string>board)
+bool check_board(const vector<string>& board)
 // Function which checks booard's correctness
 {
 	if (board.empty())
@@ -90,7 +90,7 @@ void print_file_error_msg()
 	for (int i = 0; i < 50; i++)
 		cout << "=";
 }
-void save_game_to_file(Game ended_game)
+void save_game_to_file(const Game& ended_game)
 // Function which saves info about ended_game to a file
 {
 	ofstream player1_file("player1_game.txt");

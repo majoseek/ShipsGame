@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "Status.h"
 #include <ostream>
-Player::Player(int start_ships, Board p_board, std::string in_name)
+Player::Player(const int& start_ships, const Board& p_board, const std::string& in_name)
 {
 	name = in_name;
 	ammo = std::make_pair(NORMAL_AMMO_QUANTITY, INCENDIARY_AMMO_QUANTITY);
@@ -10,7 +10,7 @@ Player::Player(int start_ships, Board p_board, std::string in_name)
 }
 
 
-std::string Player::take_shot(int x, int y, Ammunition shoot_ammo)
+std::string Player::take_shot(const int& x, const int& y, const Ammunition& shoot_ammo)
 // Method used to combat between two players 
 {
 	Status hit_status = player_board.hit_ship(x, y, shoot_ammo);
@@ -33,7 +33,7 @@ std::string Player::take_shot(int x, int y, Ammunition shoot_ammo)
 }
 
 
-std::ostream& operator<<(std::ostream& os, Player player)
+std::ostream& operator<<(std::ostream& os, const Player& player)
 {
 	os << player.name << "'s turn. \nYou have " << player.ammo.first << " normal ammunition left and ";
 	os << player.ammo.second << " incendiary ammunition left." << std::endl;

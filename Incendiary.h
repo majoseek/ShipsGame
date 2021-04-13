@@ -8,6 +8,6 @@ class Incendiary :
 {
 public:
     int armor;
-    Incendiary(int dmg);
+    Incendiary(const int& dmg);
 };
 

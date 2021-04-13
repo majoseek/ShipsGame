@@ -1,5 +1,5 @@
 #include "Ammunition.h"
-Ammunition::Ammunition(int dmg)
+Ammunition::Ammunition(const int& dmg)
 {
 	damage = dmg;
 	type = "NORMAL";

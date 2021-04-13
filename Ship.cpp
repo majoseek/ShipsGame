@@ -2,14 +2,14 @@
 #include <algorithm>
 #include <ostream>
 
-Ship::Ship(int start_health)
+Ship::Ship(const int& start_health)
 {
 	health = start_health;
 	type = "NORMAL";
 	hit_incendiary = 0;
 }
 
-void Ship::take_damage(int amount)
+void Ship::take_damage(const int& amount)
 // Method allowing ships to take damage
 {
 	health = std::max(0, health - amount);
