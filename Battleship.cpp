@@ -9,6 +9,7 @@ Battleship::Battleship(int start_health, int start_armor) :Ship(start_health)
 }
 
 void Battleship::take_damage(int amount)
+// Method allowing battleships to take damage
 {
 	health = std::max(0, health - (amount - armor));
 }

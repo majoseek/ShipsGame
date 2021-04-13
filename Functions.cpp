@@ -2,6 +2,7 @@
 using namespace std;
 
 pair<string,vector<string>> get_board(string file_name)
+// Function which gets player's data from a file. Returns pair of <player_name, player_board>
 {
 	auto size_error = []()
 	{
@@ -57,6 +58,7 @@ pair<string,vector<string>> get_board(string file_name)
 	return result;
 }
 bool check_board(vector<string>board)
+// Function which checks booard's correctness
 {
 	if (board.empty())
 		return false;
@@ -77,6 +79,7 @@ bool check_board(vector<string>board)
 }
 void print_file_error_msg()
 {
+	// Function which outputs an error message
 	for (int i = 0; i < 50; i++)
 		cout << "=";
 	cout << "\nFirst line must contain your name" << endl;
@@ -88,6 +91,7 @@ void print_file_error_msg()
 		cout << "=";
 }
 void save_game_to_file(Game ended_game)
+// Function which saves info about ended_game to a file
 {
 	ofstream player1_file("player1_game.txt");
 	player1_file << "Player: " << setw(10) << ended_game.current_player.name << endl;

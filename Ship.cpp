@@ -10,6 +10,7 @@ Ship::Ship(int start_health)
 }
 
 void Ship::take_damage(int amount)
+// Method allowing ships to take damage
 {
 	health = std::max(0, health - amount);
 }

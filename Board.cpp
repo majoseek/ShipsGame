@@ -25,7 +25,8 @@ Board::Board(vector<string> input_board)
 		}
 	board_size = b_size;
 }
-int Board::count_ships()
+int Board::count_ships() const
+// Method which counts not destroyed ships on the board
 {
 	int result = 0;
 	for(int i=0;i<board_size;i++)
@@ -38,6 +39,7 @@ int Board::count_ships()
 }
 
 void Board::incendiary_ships()
+// Method which burns with incendiary effect all the hit ships 
 {
 	for (int i = 0; i < board_size; i++)
 		for (int j = 0; j < board_size; j++)
@@ -56,6 +58,7 @@ void Board::incendiary_ships()
 }
 
 Status Board::hit_ship(int x, int y, Ammunition ammo)
+// Method which allows hitting ships
 {
 	if (ships[x][y].is_destroyed())
 	{
@@ -76,12 +79,14 @@ Status Board::hit_ship(int x, int y, Ammunition ammo)
 }
 
 void Board::remove_ship(int x, int y)
+// Method which removes a destroyed ship situated at XY
 {
 	ships[x][y].type = "NONE";
 	ships[x][y].health = 0;
 	ships[x][y].hit_incendiary = 0;
 }
-void Board::print_board(std::ostream& os)
+void Board::print_board(std::ostream& os) const
+// Simple method to print the current state of the board
 {
 	for (int i = 0; i < board_size*2+2; i++)
 		os << "=";

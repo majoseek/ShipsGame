@@ -4,12 +4,14 @@
 
 
 bool check_range(int a, int b, int num)
+// Simple function to check whether a num is in the range <a, b>
 {
 	return (num >= a && num <= b);
 }
 
 
 std::pair<int, int> get_player_target(int board_size)
+// Function which gets a target cell input from the player
 {
 	int target_num;
 	char target_letter;
@@ -26,6 +28,7 @@ std::pair<int, int> get_player_target(int board_size)
 }
 
 int get_ammo_type(std::pair<int, int> ammo_left)
+// Function which gets an ammuntion type from the player
 {
 	std::string ammo_kind;
 	std::cout << "Type an ammuntion kind - N (Normal), I (Incendiary):";
@@ -67,7 +70,8 @@ int get_ammo_type(std::pair<int, int> ammo_left)
 }
 
 
-bool Game::check_game_end()
+bool Game::check_game_end() const
+// Returns true when the game is ended(either no ships or ammo)
 {
 	if (current_player.player_board.count_ships() == 0)
 	{
@@ -81,6 +85,7 @@ bool Game::check_game_end()
 }
 
 std::string Game::player_turn()
+// Plays a turn and returns an outcome messages
 {
 	next_player.player_board.incendiary_ships();
 	if (!(current_player.has_ammo()))

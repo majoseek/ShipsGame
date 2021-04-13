@@ -11,6 +11,7 @@ Player::Player(int start_ships, Board p_board, std::string in_name)
 
 
 std::string Player::take_shot(int x, int y, Ammunition shoot_ammo)
+// Method used to combat between two players 
 {
 	Status hit_status = player_board.hit_ship(x, y, shoot_ammo);
 	std::string shot_msg;
