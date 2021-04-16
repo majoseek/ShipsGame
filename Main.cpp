@@ -25,14 +25,14 @@ int main()
 	while (!g1.check_game_end())
 	{
 		g1.current_player.player_board.print_board(cout);
-		std::cout << g1.current_player << endl << endl;
-		std::cout << g1.player_turn() << endl;
+		cout << g1.current_player << endl << endl;
+		cout << g1.player_turn() << endl;
 		g1.swap_player();
 		system("pause");
 		system("cls");
+		save_game_to_file(g1);
 	}
-	std::cout << "Game ended!" << endl;
-	std::cout << g1.next_player.name << " won. Congratulations!";
-	save_game_to_file(g1);
+	cout << "Game ended!" << endl;
+	cout << g1.next_player.name << " won. Congratulations!";
 	return 0;
 }
