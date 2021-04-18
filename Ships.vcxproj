@@ -22,6 +22,7 @@
     <ClInclude Include="Ammunition.h" />
     <ClInclude Include="Battleship.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Computer.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Incendiary.h" />
@@ -32,6 +33,7 @@
     <ClCompile Include="Ammunition.cpp" />
     <ClCompile Include="Battleship.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Computer.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Incendiary.cpp" />

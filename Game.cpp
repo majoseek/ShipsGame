@@ -1,7 +1,8 @@
 #include "Game.h"
 #include "Incendiary.h"
 #include <cstdlib>
-
+#include<stdlib.h>
+#include<time.h>
 
 bool check_range(const int& a, const int& b, const int& num)
 // Simple function to check whether a num is in the range <a, b>
@@ -92,15 +93,39 @@ std::string Game::player_turn()
 	{
 		return "You ran out of the ammuntion! Proceeding to the next player.";
 	}
-	std::pair<int, int> target = get_player_target(current_player.player_board.board_size);
-	int ammo_type = get_ammo_type(current_player.ammo);
+	int ammo_type = 0;
+	std::pair<int, int> target;
+	if (current_player.name != "Computer")
+	{
+		target = get_player_target(current_player.player_board.board_size);
+		ammo_type=get_ammo_type(current_player.ammo);
+	}
+	else
+	{
+		char target_letter;
+		std::vector<char>allowed_letters;
+		char starting_char = 'A';
+		for (int i = 0; i < current_player.player_board.board_size; i++, starting_char++)
+			allowed_letters.push_back(starting_char);
+		target_letter = allowed_letters[rand()%allowed_letters.size()];
+		int target_num = rand() % current_player.player_board.board_size + 1;
+		std::cout << target_letter << " " << target_num << "\n";
+		target=std::make_pair(target_letter - 'A', target_num - 1);
+		if (current_player.ammo.first > 0 && current_player.ammo.second > 0)
+			ammo_type = rand() % 2;
+		else if (current_player.ammo.first > 0)
+			ammo_type = 0;
+		else
+			ammo_type = 1;
+
+	}
 	if (ammo_type == 0)
 	{
 		current_player.ammo.first--;
-		return next_player.take_shot(target.first, target.second, Ammunition(NORMAL_AMMO_DMG));
+		return next_player.take_shot(target.first, target.second, Ammunition(NORMAL_AMMO_DMG),current_player.name);
 	}
 	current_player.ammo.second--;
-	return next_player.take_shot(target.first, target.second, Incendiary(INCENDIARY_AMMO_DMG));
+	return next_player.take_shot(target.first, target.second, Incendiary(INCENDIARY_AMMO_DMG),current_player.name);
 }
 
 Game::Game(Player starting_player, Player second_player)

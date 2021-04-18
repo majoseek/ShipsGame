@@ -1,6 +1,7 @@
 #pragma once
 #include "Board.h"
 #include "Player.h"
+#include "Computer.h"
 #include<fstream>
 #include<iostream>
 #include<utility>

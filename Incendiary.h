@@ -7,7 +7,6 @@ class Incendiary :
     public Ammunition
 {
 public:
-    int armor;
     Incendiary(const int& dmg);
 };
 

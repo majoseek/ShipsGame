@@ -1,20 +1,32 @@
-Player:    Player2
+Player:    Player1
 ==================================================
 ======================
-A  - - @ - - - - - # -
+A  - - - - - - - - # -
 B  - - - - - - - - - -
-C  - - - - - # - - - -
-D  - - - - @ @ - - - -
+C  - - - - - - - - - -
+D  - - - - - - - - - -
 E  - - - - - - - - - -
-F  @ - - - - - - - - -
-G  - - @ - - - - - - -
-H  - - - - - - - - - -
+F  - - - - - - - - - -
+G  - - - - - - - - - -
+H  @ @ @ @ @ @ - - - -
 I  - - - - - - - - - -
-J  - - - - - - - - - -
+J  # - - - - - - - - -
    1 2 3 4 5 6 7 8 9 10 
 ======================
 ==================================================
-Player2 shoots on area A4 with NORMAL ammo
-Player2 missed!
-Player2 shoots on area A1 with NORMAL ammo
-Player2 missed!
+Computer shoots on area B3 with NORMAL ammo
+Computer missed!
+Computer shoots on area A4 with NORMAL ammo
+Computer missed!
+Computer shoots on area A2 with NORMAL ammo
+Computer missed!
+Computer shoots on area F10 with INCENDIARY ammo
+Computer missed!
+Computer shoots on area E3 with NORMAL ammo
+Computer missed!
+Computer shoots on area C1 with NORMAL ammo
+Computer missed!
+Computer shoots on area F3 with NORMAL ammo
+Computer missed!
+Computer shoots on area G10 with INCENDIARY ammo
+Computer missed!
