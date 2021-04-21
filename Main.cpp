@@ -34,6 +34,7 @@ int main()
 		save_game_to_file(g1);
 	}
 	cout << "Game ended!" << endl;
-	cout << g1.next_player.name << " won. Congratulations!";
+	cout << g1.next_player.name << " won. Congratulations!" << endl;
+	play_recorder_game(g1);
 	return 0;
 }
