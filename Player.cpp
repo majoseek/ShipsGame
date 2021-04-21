@@ -19,7 +19,7 @@ std::string Player::take_shot(const int& x, const int& y, const Ammunition& shoo
 	{
 		shot_msg = " destroyed the ship!";
 	}
-	if (hit_status == Status::Miss)
+	else if (hit_status == Status::Miss)
 	{
 		shot_msg = " missed!";
 	}

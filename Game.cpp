@@ -20,6 +20,8 @@ std::pair<int, int> get_player_target(const int& board_size)
 	std::cin >> target_letter >> target_num;
 	while (!check_range('A', 'A' + board_size - 1, target_letter) || !check_range(1, board_size, target_num))
 	{
+	
+		std::cin.clear();
 		std::cout << "Incorrect cell. Provide it again: ";
 		std::cin >> target_letter >> target_num;
 	}
@@ -46,6 +48,7 @@ int get_ammo_type(const std::pair<int, int>& ammo_left)
 	}
 	while (condition)
 	{
+		std::cin.clear();
 		std::cout << "Incorrect ammunation type. Provide it again: ";
 		std::cin >> ammo_kind;
 		for (auto& c : ammo_kind) c = toupper(c);
