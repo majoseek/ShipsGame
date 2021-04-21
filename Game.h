@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Computer.h"
 #include<fstream>
 #include <string>
 #include <iostream>

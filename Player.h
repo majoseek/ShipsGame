@@ -2,6 +2,8 @@
 #include "Ammunition.h"
 #include "Board.h"
 #include<utility>
+#include<iostream>
+#include<vector>
 class Player
 {
 public:
@@ -11,7 +13,8 @@ public:
 	std::vector<std::string> logs;	//:param[]: keeps history of made moves
 	int remain_ships;
 	Player(const int& starting_ships=0, const Board& p_board=Board(std::vector<std::string>()), const std::string& in_name = "");
-	std::string take_shot(const int& x,const int& y,const Ammunition& shoot_ammo, const std::string& shooter_name);
+	std::string take_shot(const int& x,const int& y,const Ammunition& shoot_ammo, Player& shooter_name);
+	std::pair<int, int> rand_area(int& ammo_type);
 	bool has_ammo() const { return (ammo.first > 0 || ammo.second > 0); }
 };
 

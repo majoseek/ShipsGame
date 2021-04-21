@@ -14,19 +14,7 @@ J  - - - - - - - - - -
    1 2 3 4 5 6 7 8 9 10 
 ======================
 ==================================================
-Player1 shoots on area A3 with NORMAL ammo
-Player1 hit the ship!
-Player1 shoots on area A2 with INCENDIARY ammo
-Player1 missed!
-Player1 shoots on area A2 with NORMAL ammo
-Player1 missed!
-Player1 shoots on area F3 with NORMAL ammo
-Player1 missed!
-Player1 shoots on area F10 with NORMAL ammo
-Player1 missed!
-Player1 shoots on area F3 with NORMAL ammo
-Player1 missed!
-Player1 shoots on area H1 with NORMAL ammo
-Player1 missed!
-Player1 shoots on area G3 with NORMAL ammo
-Player1 hit the ship!
+Computer shoots on area H1 with NORMAL ammo
+Computer hit the ship!
+Computer shoots on area E3 with NORMAL ammo
+Computer missed!
