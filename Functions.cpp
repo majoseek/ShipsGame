@@ -1,4 +1,6 @@
 #include "Functions.h"
+#include <ctime>
+#include <chrono>
 using namespace std;
 
 pair<string,vector<string>> get_board(const string& file_name)
@@ -109,4 +111,70 @@ void save_game_to_file(const Game& ended_game)
 	for (auto log : ended_game.next_player.logs)
 		player2_file << log << endl;
 	player2_file.close();
+}
+void play_recorder_game(const Game& game_ended)
+{
+	std::time_t now = time(0);
+	char buff[20]{};
+	struct tm buf;
+	errno_t err = localtime_s(&buf, &now);
+	std::strftime(buff, sizeof(buff), "%Y-%m-%d %H:%M", &buf);
+	RecordedGame game = RecordedGame(game_ended, std::string(buff));
+	game.add_ranking();
+	char action = ' ';
+	std::cout << "Do you want to get to inspect last game? (type I to inspect): ";
+	std::cin >> action;
+	action = std::toupper(action);
+	if (action != 'I')
+		return;
+	std::cout << "Playing last game" << std::endl;
+	std::cout << "Use 'A' and 'D' to move to next or previous turn. Use 'q' to exit" << std::endl;
+	while (action != 'Q')
+	{
+		std::cout << game.player_turn() << std::endl;
+		std::cin >> action;
+		action = std::toupper(action);
+		switch (action)
+		{
+		case 'A':
+			if (game.current_turn > 0)
+			{
+				--game.current_turn;
+			}
+			system("cls");
+			break;
+		case 'D':
+			if (game.current_turn < game.turns)
+			{
+				++game.current_turn;
+			}
+			system("cls");
+			break;
+		case 'Q':
+			break;
+		default:
+			break;
+		}
+	}
+	std::cout << game.game_stats() << std::endl;
+}
+
+void get_ranking_from_file(std::string file_name, Ranking& ranking)
+{
+	std::ifstream rank_file(file_name);
+	std::string line;
+	std::getline(rank_file, line);
+		line.erase(std::remove(line.begin(), line.end(), '='), line.end());
+	ranking.category = line;
+	int place;
+	std::string date;
+	std::string time;
+	int turns;
+	while (rank_file >> place)
+	{
+		rank_file >> date >> time >> turns;
+		date += (" " + time);
+		ranking.list.push_back(std::make_pair(turns, date));
+	}
+	rank_file.close();
 }
