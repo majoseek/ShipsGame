@@ -101,31 +101,14 @@ std::string Game::player_turn()
 		ammo_type=get_ammo_type(current_player.ammo);
 	}
 	else
-	{
-		char target_letter;
-		std::vector<char>allowed_letters;
-		char starting_char = 'A';
-		for (int i = 0; i < current_player.player_board.board_size; i++, starting_char++)
-			allowed_letters.push_back(starting_char);
-		target_letter = allowed_letters[rand()%allowed_letters.size()];
-		int target_num = rand() % current_player.player_board.board_size + 1;
-		std::cout << target_letter << " " << target_num << "\n";
-		target=std::make_pair(target_letter - 'A', target_num - 1);
-		if (current_player.ammo.first > 0 && current_player.ammo.second > 0)
-			ammo_type = rand() % 2;
-		else if (current_player.ammo.first > 0)
-			ammo_type = 0;
-		else
-			ammo_type = 1;
-
-	}
+		target = current_player.rand_area(ammo_type);
 	if (ammo_type == 0)
 	{
 		current_player.ammo.first--;
-		return next_player.take_shot(target.first, target.second, Ammunition(NORMAL_AMMO_DMG),current_player.name);
+		return next_player.take_shot(target.first, target.second, Ammunition(NORMAL_AMMO_DMG),current_player);
 	}
 	current_player.ammo.second--;
-	return next_player.take_shot(target.first, target.second, Incendiary(INCENDIARY_AMMO_DMG),current_player.name);
+	return next_player.take_shot(target.first, target.second, Incendiary(INCENDIARY_AMMO_DMG),current_player);
 }
 
 Game::Game(Player starting_player, Player second_player)
