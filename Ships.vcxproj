@@ -27,7 +27,10 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Incendiary.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Ranking.h" />
+    <ClInclude Include="RecordedGame.h" />
     <ClInclude Include="Ship.h" />
+    <ClInclude Include="Status.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ammunition.cpp" />
@@ -39,7 +42,12 @@
     <ClCompile Include="Incendiary.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Ranking.cpp" />
+    <ClCompile Include="RecordedGame.cpp" />
     <ClCompile Include="Ship.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Ranking.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
