@@ -1,21 +1,8 @@
-# Autorzy
-Mateusz Maj\
-Wojciech Kołodziejak
-
-# Zadanie
-Gra na wzór gry w Statki
-
-Gracz w wersji 2 osobowej z wymiana danych przez plik.
-
-W grze można definować liczbę, typ, położenie statku, ... Położenie można definiować ręcznie lub automatycznie
-
-Celem gry jest zniszczenie statków przecwinika
-
-Opcje: różne pociski, osłony,  poruszanie sie pojazdów ....
-
-Każda statek może posiadac zdrowie (opcja)
-
-
-Powinna być mozliwośc zapisu i odczytu stany gry.
-
-Inne funkcjonalności jak najbardziej wskazane (np. wieloturowść, podpowiadanie, stworzenie "grafki" w SFG, ...).
+# Ships Game
+## Description
+Popular board game where your aim is to destroy all enemy ships.\
+Game is more extended than standard version. You can choose ammunition type\
+or use armored ships. Simple AI is also added, so you can play Singleplayer
+## Tools
+Program was made and tested in Visual Studio, so its recommended to launch it there,\
+however you can simply run it with g++ or makefile.
