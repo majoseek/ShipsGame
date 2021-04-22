@@ -18,10 +18,15 @@ int main()
 	}
 	Board player1_board(b1.second);
 	Board player2_board(b2.second);
-	//Ammunition normal_ammo(5);
-	//Incendiary incendiary_ammo(10);
-	Player player1(player1_board.count_ships(), player1_board, b1.first);
-	Computer player2(player2_board.count_ships(), player2_board, b2.first);
+	Player player1, player2;
+	if(b1.first=="Computer")
+		player1=Computer(player1_board.count_ships(), player1_board, b1.first);
+	else
+		player1 = Player(player1_board.count_ships(), player1_board, b1.first);
+	if (b1.first == "Computer")
+		player2 = Computer(player2_board.count_ships(), player2_board, b2.first);
+	else
+		player2 = Player(player2_board.count_ships(), player2_board, b2.first);
 	Game g1 = Game(player1, player2);
 	while (!g1.check_game_end())
 	{
