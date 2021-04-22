@@ -104,7 +104,7 @@ std::string Game::player_turn()
 		ammo_type=get_ammo_type(current_player.ammo);
 	}
 	else
-		target = current_player.rand_area(ammo_type);
+		target = current_player.rand_area(ammo_type);	//Case when player is not human
 	if (ammo_type == 0)
 	{
 		current_player.ammo.first--;
